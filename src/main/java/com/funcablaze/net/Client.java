@@ -1,4 +1,4 @@
-package com.funcablaze.net.tcp;
+package com.funcablaze.net;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,36 +13,39 @@ public class Client {
     private MessageListener messageListener;
 
     public enum MessageType {
+        /** 用户发送的信息 */
         TEXT,
-        IMAGE,
+        /** 用户发送的文件 */
         FILE,
+        /** 用户发送的名片 */
         CARD,
+        /** 机器人发送的Markdown信息 */
+        MD,
+        /** 系统发送的信息 */
         INFO,
-        SERVER,
-        DEBUG
+        /** 服务器发送的信息 */
+        SERVER
     }
 
     public static String MessageType(MessageType type) {
         return switch (type) {
             case TEXT -> "text";
-            case IMAGE -> "image";
             case FILE -> "file";
             case CARD -> "card";
+            case MD -> "md";
             case INFO -> "info";
             case SERVER -> "server";
-            case DEBUG -> "DEBUG";
         };
     }
 
     public static MessageType MessageType(String type) {
         return switch (type) {
             case "text" -> MessageType.TEXT;
-            case "image" -> MessageType.IMAGE;
             case "file" -> MessageType.FILE;
             case "card" -> MessageType.CARD;
+            case "md" -> MessageType.MD;
             case "info" -> MessageType.INFO;
             case "server" -> MessageType.SERVER;
-            case "DEBUG" -> MessageType.DEBUG;
             default -> null;
         };
     }
