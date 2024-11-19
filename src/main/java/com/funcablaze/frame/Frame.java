@@ -11,6 +11,7 @@ import java.util.Objects;
 public class Frame extends JFrame {
 	
 	private final JList<User> userList;
+	private final JPanel tool;
 	
 	public Frame(int width, int height, int x, int y) {
 		// 设置 JFrame 无边框
@@ -25,7 +26,17 @@ public class Frame extends JFrame {
 				 UnsupportedLookAndFeelException ignored) {
 		}
 		userList = createList();
+		tool = createTool();
+		add(tool, BorderLayout.SOUTH);
 		add(userList);
+	}
+	
+	private JPanel createTool() {
+		JPanel toolBar = new JPanel();
+		toolBar.setLayout(new GridLayout(1, 5));
+		toolBar.setPreferredSize(new Dimension(getWidth(), 40));
+		// TODO 添加工具栏
+		return toolBar;
 	}
 	
 	private JList<User> createList() {

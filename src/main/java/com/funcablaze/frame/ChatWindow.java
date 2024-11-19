@@ -30,8 +30,9 @@ public class ChatWindow extends JFrame {
 		
 		// 工具栏
 		JPanel toolBar = new JPanel();
-		toolBar.setLayout(new GridLayout(1, 5));
-//		toolBar
+		toolBar.setLayout(new GridLayout(1, 3));
+		toolBar.setBackground(toolBackColor);
+//		toolBar.add();
 		bottom.add(toolBar, BorderLayout.NORTH);
 		bottom.setBackground(toolBackColor);
 		add(bottom, BorderLayout.SOUTH);
