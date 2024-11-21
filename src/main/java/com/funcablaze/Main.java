@@ -2,6 +2,7 @@ package com.funcablaze;
 
 import com.funcablaze.frame.ChatWindow;
 import com.funcablaze.frame.Frame;
+import com.funcablaze.net.Client;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +32,7 @@ public class Main {
 	public static void showMainWindow() {
 		if (main != null) {
 			main.setVisible(true);
-			main.setAlwaysOnTop(true);
+			main.setAlwaysOnTop(main.alwaysOnTop);
 			main.toFront();
 		}
 	}
@@ -81,7 +82,11 @@ public class Main {
 		menu.add(exitItem);//添加退出系统菜单
 		return menu;
 	}
-
+	
+	public static void getMessage(String from, Client.MessageType type, String message) {
+	
+	}
+	
 	//双击托盘弹出主窗体
 	static class SysActionListener implements ActionListener {
 		@Override
